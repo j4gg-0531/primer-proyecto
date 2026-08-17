@@ -58,11 +58,14 @@ void main() {
     expect(repo.obtenerTodos(), throwsA(isA<CampoInvalido>()));
   });
 
-  test('el asset declarado en pubspec existe y el modelo lo entiende', () async {
-    // Esta SÍ toca el bundle: es la única que caza "olvidé el pubspec".
-    TestWidgetsFlutterBinding.ensureInitialized();
+  test(
+    'el asset declarado en pubspec existe y el modelo lo entiende',
+    () async {
+      // Esta SÍ toca el bundle: es la única que caza "olvidé el pubspec".
+      TestWidgetsFlutterBinding.ensureInitialized();
 
-    final repo = ReportesPrecioLocales(lector: rootBundle.loadString);
-    expect((await repo.obtenerTodos()).length, greaterThanOrEqualTo(3));
-  });
+      final repo = ReportesPrecioLocales(lector: rootBundle.loadString);
+      expect((await repo.obtenerTodos()).length, greaterThanOrEqualTo(3));
+    },
+  );
 }

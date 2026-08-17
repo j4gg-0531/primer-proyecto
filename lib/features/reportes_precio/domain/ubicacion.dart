@@ -13,20 +13,20 @@ class Ubicacion {
   });
 
   factory Ubicacion.fromJson(Map<String, dynamic> json) => Ubicacion(
-        latitud: leerDecimal(json, 'latitud'),
-        longitud: leerDecimal(json, 'longitud'),
-        barrio: leerTexto(json, 'barrio'),
-      );
+    latitud: leerDecimal(json, 'latitud'),
+    longitud: leerDecimal(json, 'longitud'),
+    barrio: leerTexto(json, 'barrio'),
+  );
 
   final double latitud;
   final double longitud;
   final String barrio;
 
   Map<String, dynamic> toJson() => {
-        'latitud': latitud,
-        'longitud': longitud,
-        'barrio': barrio,
-      };
+    'latitud': latitud,
+    'longitud': longitud,
+    'barrio': barrio,
+  };
 
   @override
   bool operator ==(Object other) =>

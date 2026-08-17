@@ -27,17 +27,17 @@ abstract class ReportePrecio with _$ReportePrecio {
   // clase, así que freezed no genera delegados a json_serializable y la
   // serialización sigue siendo 100 % nuestra (mensajes CampoInvalido).
   static ReportePrecio fromJson(Map<String, dynamic> json) => ReportePrecio(
-        id: leerTexto(json, 'id'),
-        titulo: leerTexto(json, 'titulo'),
-        descripcion: leerTextoOpcional(json, 'descripcion'),
-        categoria: leerTexto(json, 'categoria'),
-        monto: leerDecimal(json, 'monto'),
-        moneda: leerTexto(json, 'moneda'),
-        ubicacion: Ubicacion.fromJson(leerMapa(json, 'ubicacion')),
-        creadoEn: leerFecha(json, 'creadoEn'),
-        estado: EstadoReporte.fromJson(leerMapa(json, 'estado')),
-        fotos: leerTextos(json, 'fotos'),
-      );
+    id: leerTexto(json, 'id'),
+    titulo: leerTexto(json, 'titulo'),
+    descripcion: leerTextoOpcional(json, 'descripcion'),
+    categoria: leerTexto(json, 'categoria'),
+    monto: leerDecimal(json, 'monto'),
+    moneda: leerTexto(json, 'moneda'),
+    ubicacion: Ubicacion.fromJson(leerMapa(json, 'ubicacion')),
+    creadoEn: leerFecha(json, 'creadoEn'),
+    estado: EstadoReporte.fromJson(leerMapa(json, 'estado')),
+    fotos: leerTextos(json, 'fotos'),
+  );
 
   // ── Reglas de negocio ───────────────────────────────────────────────────
   // freezed genera ==, hashCode, toString y copyWith; las decisiones son tuyas.
@@ -56,15 +56,15 @@ abstract class ReportePrecio with _$ReportePrecio {
 
 extension ReportePrecioJson on ReportePrecio {
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'titulo': titulo,
-        'descripcion': descripcion,
-        'categoria': categoria,
-        'monto': monto,
-        'moneda': moneda,
-        'ubicacion': ubicacion.toJson(),
-        'creadoEn': creadoEn.toUtc().toIso8601String(),
-        'estado': estado.toJson(),
-        'fotos': fotos,
-      };
+    'id': id,
+    'titulo': titulo,
+    'descripcion': descripcion,
+    'categoria': categoria,
+    'monto': monto,
+    'moneda': moneda,
+    'ubicacion': ubicacion.toJson(),
+    'creadoEn': creadoEn.toUtc().toIso8601String(),
+    'estado': estado.toJson(),
+    'fotos': fotos,
+  };
 }

@@ -67,7 +67,11 @@ List<String> leerTextos(Map<String, dynamic> json, String campo) {
     valor.map(
       (e) => e is String
           ? e
-          : throw CampoInvalido(campo, 'todos sus elementos deben ser texto', e),
+          : throw CampoInvalido(
+              campo,
+              'todos sus elementos deben ser texto',
+              e,
+            ),
     ),
   );
 }

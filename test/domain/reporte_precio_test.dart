@@ -33,8 +33,9 @@ void main() {
       );
 
       final texto = jsonEncode(original.toJson());
-      final vuelta =
-          ReportePrecio.fromJson(jsonDecode(texto) as Map<String, dynamic>);
+      final vuelta = ReportePrecio.fromJson(
+        jsonDecode(texto) as Map<String, dynamic>,
+      );
 
       expect(vuelta, equals(original));
     });
@@ -49,9 +50,7 @@ void main() {
 
       expect(
         () => ReportePrecio.fromJson(json),
-        throwsA(
-          isA<CampoInvalido>().having((e) => e.campo, 'campo', 'titulo'),
-        ),
+        throwsA(isA<CampoInvalido>().having((e) => e.campo, 'campo', 'titulo')),
       );
     });
 
